@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phyllis Kuo - AI 賦能師 | From Craft to Code</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8edf3 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .profile-image-container {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover; /* 關鍵：這會確保您的照片填滿圓形且不變形 */
+            object-position: top center; /* 關鍵：這會確保以臉部（上方）為中心裁切 */
+            border: 8px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: block; /* 確保圖片正常顯示 */
+        }
+
+        .profile-text h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .profile-text .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .profile-text .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: white;
+            padding: 50px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2a5298;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            font-size: 1.15em;
+            line-height: 2;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 30px;
+            border-left: 5px solid #667eea;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .expertise-card {
+            background: white;
+            border: 2px solid #e8edf3;
+            padding: 35px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-card h3 {
+            color: #1e3c72;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expertise-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .expertise-card ul {
+            margin-top: 15px;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        .expertise-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .project-grid {
+            display: grid;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .project-card h3 {
+            color: #1e3c72;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .philosophy-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .philosophy-section blockquote {
+            font-size: 1.5em;
+            line-height: 1.8;
+            font-style: italic;
+            margin: 30px 0;
+            opacity: 0.95;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2a5298;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+            }
+
+            .profile-text h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 30px 25px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-section blockquote {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <img src="profile.jpg" alt="Phyllis Kuo" class="profile-image">
+                </div>
+                <div class="profile-text">
+                    <h1>Phyllis Kuo</h1>
+                    <div class="subtitle">AI 賦能師 ｜ 內容自動化架構師 ｜ 跨域策略顧問</div>
+                    <div class="tagline">"From Craft to Code. Transforming Content with Soul."<br>從媒體總編輯到 AI 架構師，我協助企業將「工匠手藝」轉化為規模化的「數位產線」</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2><span class="section-number">01</span>關於我 About Me</h2>
+            <h3 style="color: #667eea; margin-bottom: 20px; font-size: 1.3em;">跨越 媒體 x 政府 x 科技 的策略實踐者</h3>
+            <p class="intro-text">
+                我是一位相信「技術必須落地」的策略顧問。職涯歷經行銷處長、科技公司協理、城市觀光行銷主管、媒體總編輯等高階決策角色。這些跨領域的歷練，讓我具備了「內容策展」的感性，與「系統架構」的理性。
+            </p>
+            <p class="intro-text">
+                在 AI 浪潮中，我不只是一個使用者，更是一個<strong>「流程設計師」</strong>。我看見的不是單點的工具，而是如何將 AI 嵌入組織神經網絡，創造真實的商業價值。我的專長在於解構複雜的商業需求，透過 Python 自動化與 AI 模型調校，重建高效的營運生態系。
+            </p>
+            <div class="highlight-box">
+                <strong>我的核心信念：</strong> AI 不是取代人，而是讓專業者回到最有價值的思考與創造上。我幫你把 AI 變成同事，而不只是工具。
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="section-number">02</span>核心專業 Core Competencies</h2>
+            <p class="intro-text" style="margin-bottom: 40px;">
+                我的服務不是單純的工具教學，而是整套 <strong>AI 數位轉型解決方案 (AI Transformation Solutions)</strong>：
+            </p>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>💡 AI 工作流設計</h3>
+                    <p><strong>AI Workflow Automation</strong></p>
+                    <p>診斷現有作業流程痛點，串接 Generative AI 工具，打造自動化內容產製系統。</p>
+                    <ul style="margin-top: 15px;">
+                        <li>獨家「Minimax 雙克隆」技術，打造擬真 Podcast 與有聲內容</li>
+                        <li>導入「三明治混音法」與腳本自動化</li>
+                        <li>實現低成本、高品質的內容矩陣</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>🏗️ 企業數位轉型</h3>
+                    <p><strong>Digital Transformation Strategy</strong></p>
+                    <p>協助傳統媒體與內容團隊導入 AI 思維，降低人工作業成本，提升團隊創值能力。</p>
+                    <ul style="margin-top: 15px;">
+                        <li>AI 效能診斷與導入藍圖</li>
+                        <li>結合城市行銷與品牌敘事經驗</li>
+                        <li>設計具備變現能力的內容生態系</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>🧩 賦能培訓</h3>
+                    <p><strong>Prompt Engineering & Training</strong></p>
+                    <p>客製化 AI 培訓課程，將 AI 力轉化為企業精準的流程與效能優化。</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Prompt Engineering 實戰技巧</li>
+                        <li>跨部門 AI 工具導入與變革管理</li>
+                        <li>從個人生產力到組織效能提升</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>⚙️ 營運流程自動化</h3>
+                    <p><strong>Business Automation</strong></p>
+                    <p>利用 Google Apps Script 與 No-Code 工具，解決行政斷點，讓數據自動流轉。</p>
+                    <ul style="margin-top: 15px;">
+                        <li>開發「無紙化簽署」、「智能問卷系統」</li>
+                        <li>工作流程與 API 整合</li>
+                        <li>釋放團隊生產力，專注核心創值</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="section-number">03</span>實戰案例 Selected Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <span class="project-tag">AI 語音</span>
+                    <span class="project-tag">自動化</span>
+                    <h3>【Podcast 自動化革命】Minimax AI 雙語音克隆實戰</h3>
+                    <p>建立全自動化 AI Podcast 產製流程，透過獨家「三明治混音法」，實現真實人聲與 AI 語音的完美融合，讓內容生產效率大幅提升。</p>
+                </div>
+                <div class="project-card">
+                    <span class="project-tag">媒體轉型</span>
+                    <span class="project-tag">策略診斷</span>
+                    <h3>【傳統媒體 AI 升級】新聞台內容產製效能優化</h3>
+                    <p>為大型新聞媒體盤點 AI 工具應用場景，優化內容產製斷點，提出具體的自動化戰略藍圖。從內容生產、編輯流程到發布管理，全面提升團隊協作效率。</p>
+                </div>
+                <div class="project-card">
+                    <span class="project-tag">數位轉型</span>
+                    <span class="project-tag">內容系統</span>
+                    <h3>【微商/數位平台 AI 賦能】</h3>
+                    <p>AI 協助建構「內容加速系統」，大幅縮短內容產製時間，並開創高毛利數位產品模式。協助團隊從傳統人工思維轉向 AI 賦能思維。</p>
+                </div>
+                <div class="project-card">
+                    <span class="project-tag">流程自動化</span>
+                    <span class="project-tag">系統開發</span>
+                    <h3>【行政無痛升級】Podcast 無紙化簽署系統</h3>
+                    <p>開發 Web 版電子簽名板，自動生成 PDF 並歸檔，實現 100% 無紙化與自動化流程。徹底解決傳統紙本合約的管理痛點，讓行政流程從天降為分鐘。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="philosophy-section">
+            <h2 style="color: white; border: none;"><span class="section-number">04</span>我的信念 Philosophy</h2>
+            <blockquote>
+                「最好的程式碼，不是寫出最複雜的功能，<br>
+                而是能精準還原創作者心中那個『有溫度』的聲音。」
+            </blockquote>
+            <p style="font-size: 1.2em; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                在這個演算法主導的時代，我致力於讓 AI 成為你的<strong>「數位幕僚」與「最強分身」</strong>，讓你重回創作與決策的核心。技術是為了服務內容，而不是取代靈魂。
+            </p>
+        </div>
+
+        <div class="cta-section">
+            <h2><span class="section-number">05</span>聯絡與合作 Contact</h2>
+            <p>準備好打造您的 AI 數位產線了嗎？</p>
+            <p style="font-size: 1em; opacity: 0.9;">無論是企業內訓、顧問諮詢，或是自動化系統建置，歡迎與我聯繫</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">📧 gigi092777@gmail.com</div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="mailto:gigi092777@gmail.com" class="cta-button">立即聯繫</a>
+            </div>
+            
+            <div style="margin-top: 40px; font-size: 1.1em; opacity: 0.9;">
+                <strong>服務項目：</strong><br>
+                企業 AI 內訓 ｜ 客製化自動化開發 ｜ 媒體轉型顧問
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Phyllis Kuo. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">From Craft to Code. Transforming Content with Soul.</p>
+        </footer>
+    </div>
+</body>
+</html>
