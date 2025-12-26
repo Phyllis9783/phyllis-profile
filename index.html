@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phyllis Kuo - AI 賦能師 | From Craft to Code</title>
     <meta property="og:type" content="website">
-<meta property="og:title" content="Phyllis Kuo - AI 賦能師 | From Craft to Code">
-<meta property="og:description" content="從媒體總編輯到 AI 架構師，協助企業將「工匠手藝」轉化為規模化的「數位產線」">
-<meta property="og:image" content="https://phyllis-kuo.vercel.app/og-image.jpg">
-<meta property="og:url" content="https://phyllis-kuo.vercel.app/">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://phyllis-kuo.vercel.app/og-image.jpg">
+    <meta property="og:title" content="Phyllis Kuo - AI 賦能師 | From Craft to Code">
+    <meta property="og:description" content="從媒體總編輯到 AI 架構師，協助企業將「工匠手藝」轉化為規模化的「數位產線」">
+    <meta property="og:image" content="profile.jpg">
     <style>
         * {
             margin: 0;
@@ -59,12 +55,12 @@
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            object-fit: cover; /* 關鍵：這會確保您的照片填滿圓形且不變形 */
-            object-position: top center; /* 關鍵：這會確保以臉部（上方）為中心裁切 */
+            object-fit: cover;
+            object-position: top center;
             border: 8px solid rgba(255,255,255,0.3);
             box-shadow: 0 15px 50px rgba(0,0,0,0.2);
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: block; /* 確保圖片正常顯示 */
+            display: block;
         }
 
         .profile-text h1 {
@@ -277,6 +273,7 @@
             font-size: 1.2em;
             margin-bottom: 30px;
             opacity: 0.95;
+            font-weight: 300;
         }
 
         .cta-button {
@@ -406,7 +403,7 @@
                 </div>
                 <div class="expertise-card">
                     <h3>🧩 賦能培訓</h3>
-                    <p><strong>Prompt Engineering & Training</strong></p>
+                    <p><strong>Prompt Engineering &amp; Training</strong></p>
                     <p>客製化 AI 培訓課程，將 AI 力轉化為企業精準的流程與效能優化。</p>
                     <ul style="margin-top: 15px;">
                         <li>Prompt Engineering 實戰技巧</li>
@@ -424,12 +421,28 @@
                         <li>釋放團隊生產力，專注核心創值</li>
                     </ul>
                 </div>
+                <div class="expertise-card">
+                    <h3>🤖 GenAI 代理人開發</h3>
+                    <p><strong>AI Agent Development</strong></p>
+                    <p>結合 LLM 語意理解與雲端技術，開發全自動化資訊代理人，實現 24 小時智能運作。</p>
+                    <ul style="margin-top: 15px;">
+                        <li>GCP 雲端架構部署 (Cloud Deployment)</li>
+                        <li>LINE / Telegram 智能機器人串接</li>
+                        <li>企業專屬知識庫串接與 API 整合開發</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="section">
             <h2><span class="section-number">03</span>策略藍圖與解決方案 Strategic Solutions</h2>
             <div class="project-grid">
+                <div class="project-card">
+                    <span class="project-tag">GenAI 應用</span>
+                    <span class="project-tag">資訊策展</span>
+                    <h3>【資訊流自動化】GenAI 智能新聞秘書</h3>
+                    <p>打破傳統自動化機器人的冰冷框架。結合 <strong>Gemini 2.0</strong> 語意分析與 <strong>LINE Flex Message</strong> 介面設計，自動將碎片化新聞轉化為「分段式 AI 摘要」。實現 0 成本雲端部署 (GCP)，讓資訊獲取從「被動 RSS 接收」升級為「主動智能策展」。</p>
+                </div>
                 <div class="project-card">
                     <span class="project-tag">AI 語音</span>
                     <span class="project-tag">自動化</span>
@@ -488,7 +501,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2025 Phyllis Kuo. All rights reserved.</p>
+            <p>© 2025 Phyllis Kuo. All rights reserved.</p>
             <p style="margin-top: 10px; font-size: 0.9em;">From Craft to Code. Transforming Content with Soul.</p>
         </footer>
     </div>
